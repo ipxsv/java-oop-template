@@ -21,4 +21,66 @@ import java.util.Objects;
  */
 public class SchoolBook extends Book {
 
+    private String authorName;
+    private String authorLastName;
+    private LocalDate publishDate;
+
+    public SchoolBook() {
+    }
+
+    public SchoolBook(int numberOfPages, String name, String authorName, String autorLastName, LocalDate publishDate) {
+        super(numberOfPages, name);
+        this.authorName = authorName;
+        this.authorLastName = autorLastName;
+        this.publishDate = publishDate;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getAuthorLastName() {
+        return authorLastName;
+    }
+
+    public void setAuthorLastName(String autorLastName) {
+        this.authorLastName = autorLastName;
+    }
+
+    public LocalDate getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(LocalDate publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SchoolBook that = (SchoolBook) o;
+        return authorName.equals(that.authorName) &&
+                authorLastName.equals(that.authorLastName) &&
+                publishDate.equals(that.publishDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), authorName, authorLastName, publishDate);
+    }
+
+    @Override
+    public String toString() {
+        return "SchoolBook{" +
+                "authorName='" + authorName + '\'' +
+                ", autorLastName='" + authorLastName + '\'' +
+                ", publishDate=" + publishDate +
+                '}';
+    }
 }
