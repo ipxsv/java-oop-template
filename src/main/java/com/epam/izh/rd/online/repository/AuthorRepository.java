@@ -36,8 +36,9 @@ public interface AuthorRepository {
      * с одинаковыми именем и фамилией быть не может.)
      * <p>
      * Если автор с таким именем и фамилией найден - возвращаем его, если же не найден, метод должен вернуть null.
+     * @return
      */
-    Author findByFullName(String name, String lastname);
+    Object findByFullName(String name, String lastname);
 
     /**
      * Метод должен удалять автора из массива authors, если он там имеется.
